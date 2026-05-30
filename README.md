@@ -9,7 +9,7 @@ Code and processed source-data tables for:
 
 [![DOI](https://zenodo.org/badge/1253988198.svg)](https://doi.org/10.5281/zenodo.20453860)
 
-> ⚠️ Zenodo badge above will activate after the first release (see "Citation" below).
+
 
 ---
 
