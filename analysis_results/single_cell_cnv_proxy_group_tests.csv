@@ -1,0 +1,5 @@
+comparison,n_tumor_met,n_paratumor,median_tumor_met,median_paratumor,p_wilcox,n_atc,n_ptc,median_atc,median_ptc
+GSE184362 tumor/met vs paratumor sample median CNV-z,13,4,1.15229755972463,3.07309327530585,0.192875849403137,,,,
+GSE184362 tumor/met vs paratumor CNV-high fraction,13,4,0.0857724036614307,0.480661776855808,0.156966988253578,,,,
+GSE232237 ATC vs PTC sample median CNV-z,,,,,0.29861767444881,4,7,0.968581415567578,1.45824928035545
+GSE232237 ATC vs PTC CNV-high fraction,,,,,0.39509158490415,4,7,0.0776863387978142,0.0693342531907554

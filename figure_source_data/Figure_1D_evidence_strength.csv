@@ -1,0 +1,5 @@
+evidence,status,note,strength
+RAIR-like vs iodine-handling,Strong,P=4.46e-37,2
+PTC-PDTC-ATC validation,Strong,AUC 0.87-0.89,2
+copyKAT malignant localization,Moderate,copyKAT P=4.18e-11,1
+Target actionability,Moderate,SLC7A5/AXL prioritized,1

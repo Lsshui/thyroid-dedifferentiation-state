@@ -1,0 +1,8 @@
+gene,cancer,pathology_high,pathology_medium,pathology_low,pathology_not_detected,favorable_p,unfavorable_p,pathology_total,pathology_detected_fraction,pathology_high_medium_fraction
+MTHFD2,thyroid cancer,0,0,1,1,,,2,0.5,0
+SLC7A5,thyroid cancer,2,1,0,1,,,4,0.75,0.75
+SLC1A5,thyroid cancer,0,1,0,3,,,4,0.25,0.25
+FN1,thyroid cancer,1,2,0,1,,,4,0.75,0.75
+ITGB1,thyroid cancer,0,0,0,3,,,3,0,0
+AXL,thyroid cancer,0,0,0,4,,,4,0,0
+FOSL1,thyroid cancer,1,0,0,3,,,4,0.25,0.25

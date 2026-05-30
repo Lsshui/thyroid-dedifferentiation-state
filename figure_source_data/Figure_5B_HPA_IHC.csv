@@ -1,0 +1,29 @@
+gene,category,n_cases
+MTHFD2,High,0
+SLC7A5,High,2
+SLC1A5,High,0
+FN1,High,1
+ITGB1,High,0
+AXL,High,0
+FOSL1,High,1
+MTHFD2,Medium,0
+SLC7A5,Medium,1
+SLC1A5,Medium,1
+FN1,Medium,2
+ITGB1,Medium,0
+AXL,Medium,0
+FOSL1,Medium,0
+MTHFD2,Low,1
+SLC7A5,Low,0
+SLC1A5,Low,0
+FN1,Low,0
+ITGB1,Low,0
+AXL,Low,0
+FOSL1,Low,0
+MTHFD2,Not detected,1
+SLC7A5,Not detected,1
+SLC1A5,Not detected,3
+FN1,Not detected,1
+ITGB1,Not detected,3
+AXL,Not detected,4
+FOSL1,Not detected,3

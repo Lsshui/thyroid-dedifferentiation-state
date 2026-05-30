@@ -1,0 +1,117 @@
+GSE184362 epithelial-reference lightweight CNV proxy
+
+Reference: paratumor Epithelial_Thyroid cells only.
+Reference genes retained: 21015 
+Reference epithelial cell representation per retained gene median n: 6991 
+Cells scored:
+            tissue_group     N
+                  <char> <int>
+           Primary_tumor 20528
+               Paratumor  6991
+   Lymph_node_metastasis 17893
+ Subcutaneous_metastasis  5483
+
+Cell-level correlation between RAIR-like and epithelial-reference CNV amplitude:
+ n_cells spearman_rho       p_value
+   <int>        <num>         <num>
+   50895   -0.1250889 1.451763e-176
+
+RAIR-like by CNV-high proxy status:
+ n_high n_low median_RAIR_high median_RAIR_low delta_RAIR_high_minus_low
+  <int> <int>            <num>           <num>                     <num>
+   8913 41982        0.6997441        1.349601                -0.6498567
+     p_wilcox
+        <num>
+ 1.906541e-58
+
+Sample-level tests, requiring >=50 epithelial/thyroid cells:
+                               comparison n_tumor_met n_paratumor
+                                   <char>       <int>       <int>
+      Tumor/met vs paratumor median CNV-z          13           4
+ Tumor/met vs paratumor CNV-high fraction          13           4
+  Tumor/met vs paratumor median RAIR-like          13           4
+ median_tumor_met median_paratumor    p_wilcox
+            <num>            <num>       <num>
+       -0.3337919      -0.10342759 0.865134745
+        0.0985124       0.07696546 0.691885968
+        1.2335532      -3.42818240 0.003885556
+
+Sample-level summary:
+   dataset        sample disease_group            tissue_group n_epithelial
+    <char>        <char>        <char>                  <char>        <int>
+ GSE184362 PTC10_RightLN   PTC_related   Lymph_node_metastasis         6050
+ GSE184362 PTC11_RightLN   PTC_related   Lymph_node_metastasis         1546
+ GSE184362   PTC2_LeftLN   PTC_related   Lymph_node_metastasis            2
+ GSE184362   PTC3_LeftLN   PTC_related   Lymph_node_metastasis           38
+ GSE184362  PTC3_RightLN   PTC_related   Lymph_node_metastasis           64
+ GSE184362  PTC5_RightLN   PTC_related   Lymph_node_metastasis         5435
+ GSE184362  PTC6_RightLN   PTC_related   Lymph_node_metastasis         2766
+ GSE184362  PTC7_RightLN   PTC_related   Lymph_node_metastasis         1992
+ GSE184362        PTC1_P     Paratumor               Paratumor           10
+ GSE184362        PTC2_P     Paratumor               Paratumor            2
+ GSE184362        PTC3_P     Paratumor               Paratumor           55
+ GSE184362        PTC5_P     Paratumor               Paratumor         1615
+ GSE184362        PTC8_P     Paratumor               Paratumor         4923
+ GSE184362        PTC9_P     Paratumor               Paratumor          386
+ GSE184362       PTC10_T   PTC_related           Primary_tumor         8849
+ GSE184362        PTC1_T   PTC_related           Primary_tumor           35
+ GSE184362        PTC3_T   PTC_related           Primary_tumor          217
+ GSE184362        PTC5_T   PTC_related           Primary_tumor         1600
+ GSE184362        PTC8_T   PTC_related           Primary_tumor         5357
+ GSE184362        PTC9_T   PTC_related           Primary_tumor         4470
+ GSE184362      PTC11_SC   PTC_related Subcutaneous_metastasis         5214
+ GSE184362       PTC4_SC   PTC_related Subcutaneous_metastasis          269
+   dataset        sample disease_group            tissue_group n_epithelial
+    <char>        <char>        <char>                  <char>        <int>
+ median_RAIR_like median_cnv_epithelial_ref_z fraction_cnv_epithelial_ref_high
+            <num>                       <num>                            <num>
+      1.931508831                 -0.26206137                      0.098512397
+      2.220790220                 -0.98502934                      0.068564036
+      2.482447683                  1.83127992                      0.500000000
+     -0.928118627                 -0.76847343                      0.105263158
+     -0.325537043                 -0.78330926                      0.203125000
+      1.290169534                  0.15424614                      0.009199632
+      2.483484185                  0.54924961                      0.092190889
+     -0.887589716                  0.05742967                      0.101907631
+     -2.924988926                 -0.35591859                      0.000000000
+      0.009111272                 -0.35463264                      0.000000000
+     -3.132332556                 -0.70885377                      0.127272727
+     -2.505122576                 -0.27012331                      0.089164087
+     -3.963392487                  0.06326814                      0.051594556
+     -3.724032247                  0.12431092                      0.064766839
+      1.639803176                  4.31180355                      0.677025653
+      0.894165787                  0.72209530                      0.085714286
+     -2.170794761                 -0.52972348                      0.110599078
+      0.857243712                 -0.36866328                      0.035000000
+      0.580455550                  0.58454403                      0.145230539
+      1.172332425                 -0.67529989                      0.045861298
+      2.859927454                 -0.33379191                      0.026658995
+      1.233553155                 -0.83858966                      0.219330855
+ median_RAIR_like median_cnv_epithelial_ref_z fraction_cnv_epithelial_ref_high
+            <num>                       <num>                            <num>
+ fraction_RAIR_top_quartile_cnv_high tumor_met_group
+                               <num>          <char>
+                         0.017845340       Tumor_met
+                         0.038759690       Tumor_met
+                         0.000000000       Tumor_met
+                         0.200000000       Tumor_met
+                         0.000000000       Tumor_met
+                         0.002943341       Tumor_met
+                         0.037572254       Tumor_met
+                         0.022088353       Tumor_met
+                         0.000000000       Paratumor
+                         0.000000000       Paratumor
+                         0.071428571       Paratumor
+                         0.071782178       Paratumor
+                         0.041429732       Paratumor
+                         0.113402062       Paratumor
+                         0.525982829       Tumor_met
+                         0.000000000       Tumor_met
+                         0.072727273       Tumor_met
+                         0.012500000       Tumor_met
+                         0.047014925       Tumor_met
+                         0.023255814       Tumor_met
+                         0.006901840       Tumor_met
+                         0.058823529       Tumor_met
+ fraction_RAIR_top_quartile_cnv_high tumor_met_group
+                               <num>          <char>

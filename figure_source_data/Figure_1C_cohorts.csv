@@ -1,0 +1,13 @@
+cohort,role,n,modality,cohort_label
+TCGA-THCA,Discovery,505,Bulk RNA-seq,"TCGA-THCA
+Discovery"
+GSE151179,RAI exploratory,49,Bulk array,"GSE151179
+RAI exploratory"
+GSE33630,PTC/ATC validation,105,Bulk array,"GSE33630
+PTC/ATC validation"
+GSE76039,PDTC/ATC validation,37,Bulk array,"GSE76039
+PDTC/ATC validation"
+GSE184362,PTC scRNA ecology,197955,scRNA-seq,"GSE184362
+PTC scRNA ecology"
+GSE232237,PTC/ATC scRNA ecology,84803,scRNA-seq,"GSE232237
+PTC/ATC scRNA ecology"

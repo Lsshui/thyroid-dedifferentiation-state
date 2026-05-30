@@ -1,0 +1,15 @@
+x,step,detail,fill
+1,Discovery,"TCGA-THCA
+505 tumors",#26364A
+2,"Dedifferentiation
+validation","GSE33630/GSE76039
+PTC-PDTC-ATC",#3978A8
+3,"Single-cell
+localization","GSE184362/GSE232237
+282,758 cells",#2E9F8F
+4,"copyKAT malignant
+classification","Aneuploid epithelial
+compartment",#D9923B
+5,"Target
+translation","HPA + ChEMBL
+Tiered nodes",#B6403A

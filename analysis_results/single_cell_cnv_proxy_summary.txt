@@ -1,0 +1,115 @@
+Single-cell lightweight CNV proxy analysis
+
+Method guardrail:
+This is not inferCNV/copyKAT. It orders genes by TCGA/GENCODE genomic coordinates, centers log-normalized expression on non-epithelial reference cells, smooths across 100-gene genomic windows, and reports per-cell absolute deviation amplitude.
+Use it as a reproducible proxy to test whether RAIR-like epithelial/thyroid cells are enriched for malignant-like genome-wide expression imbalance.
+
+Epithelial/thyroid cells scored:
+   dataset     N
+    <char> <int>
+ GSE184362 50895
+ GSE232237 14665
+
+Correlation between RAIR-like and CNV proxy amplitude:
+   dataset n_cells spearman_rho      p_value
+    <char>   <int>        <num>        <num>
+ GSE184362   50895   -0.1740563 0.000000e+00
+ GSE232237   14665    0.0463051 2.022821e-08
+
+RAIR-like score by CNV proxy high/low status:
+   dataset n_high n_low median_RAIR_high median_RAIR_low
+    <char>  <int> <int>            <num>           <num>
+ GSE184362   6660 44235       -0.2610166        1.323509
+ GSE232237   1050 13615        2.5789037        1.171844
+ delta_RAIR_high_minus_low      p_wilcox
+                     <num>         <num>
+                 -1.584526 5.024833e-153
+                  1.407060  5.659026e-29
+
+Sample-level group tests:
+                                           comparison n_tumor_met n_paratumor
+                                               <char>       <int>       <int>
+ GSE184362 tumor/met vs paratumor sample median CNV-z          13           4
+   GSE184362 tumor/met vs paratumor CNV-high fraction          13           4
+             GSE232237 ATC vs PTC sample median CNV-z          NA          NA
+               GSE232237 ATC vs PTC CNV-high fraction          NA          NA
+ median_tumor_met median_paratumor  p_wilcox n_atc n_ptc median_atc median_ptc
+            <num>            <num>     <num> <int> <int>      <num>      <num>
+        1.1522976        3.0730933 0.1928758    NA    NA         NA         NA
+        0.0857724        0.4806618 0.1569670    NA    NA         NA         NA
+               NA               NA 0.2986177     4     7 0.96858142 1.45824928
+               NA               NA 0.3950916     4     7 0.07768634 0.06933425
+
+Sample-level summary, first rows:
+   dataset        sample disease_group            tissue_group n_epithelial
+    <char>        <char>        <char>                  <char>        <int>
+ GSE184362 PTC10_RightLN   PTC_related   Lymph_node_metastasis         6050
+ GSE184362       PTC10_T   PTC_related           Primary_tumor         8849
+ GSE184362 PTC11_RightLN   PTC_related   Lymph_node_metastasis         1546
+ GSE184362      PTC11_SC   PTC_related Subcutaneous_metastasis         5214
+ GSE184362        PTC1_P     Paratumor               Paratumor           10
+ GSE184362        PTC1_T   PTC_related           Primary_tumor           35
+ GSE184362   PTC2_LeftLN   PTC_related   Lymph_node_metastasis            2
+ GSE184362        PTC2_P     Paratumor               Paratumor            2
+ GSE184362   PTC3_LeftLN   PTC_related   Lymph_node_metastasis           38
+ GSE184362        PTC3_P     Paratumor               Paratumor           55
+ GSE184362  PTC3_RightLN   PTC_related   Lymph_node_metastasis           64
+ GSE184362        PTC3_T   PTC_related           Primary_tumor          217
+ GSE184362       PTC4_SC   PTC_related Subcutaneous_metastasis          269
+ GSE184362        PTC5_P     Paratumor               Paratumor         1615
+ GSE184362  PTC5_RightLN   PTC_related   Lymph_node_metastasis         5435
+ GSE184362        PTC5_T   PTC_related           Primary_tumor         1600
+ GSE184362  PTC6_RightLN   PTC_related   Lymph_node_metastasis         2766
+ GSE184362  PTC7_RightLN   PTC_related   Lymph_node_metastasis         1992
+ GSE184362        PTC8_P     Paratumor               Paratumor         4923
+ GSE184362        PTC8_T   PTC_related           Primary_tumor         5357
+   dataset        sample disease_group            tissue_group n_epithelial
+    <char>        <char>        <char>                  <char>        <int>
+ median_RAIR_like median_cnv_proxy_amp median_cnv_proxy_z
+            <num>                <num>              <num>
+      1.931508831           0.05702928       1.7415086606
+      1.639803176           0.05247629       0.2369203256
+      2.220790220           0.05136844       1.0351125879
+      2.859927454           0.05309390       1.1522975597
+     -2.924988926           0.05855948       6.6336038233
+      0.894165787           0.04747522       0.9538156056
+      2.482447683           0.05898195       6.0399141456
+      0.009111272           0.06075881       6.4609211376
+     -0.928118627           0.05960162       7.5916799736
+     -3.132332556           0.06108239       8.2693550796
+     -0.325537043           0.06458746       9.3394132923
+     -2.170794761           0.05807066       5.9432267386
+      1.233553155           0.04685624       2.0373019221
+     -2.505122576           0.05049310       1.1501052463
+      1.290169534           0.04570685      -0.3376690981
+      0.857243712           0.04999239       0.3794257238
+      2.483484185           0.04802996      -0.0002040418
+     -0.887589716           0.06561666       4.1495353334
+     -3.963392487           0.06092977       2.2385241468
+      0.580455550           0.05672239       1.1613341230
+ median_RAIR_like median_cnv_proxy_amp median_cnv_proxy_z
+            <num>                <num>              <num>
+ fraction_cnv_proxy_high fraction_RAIR_top_quartile_cnv_high ref_cells_used
+                   <num>                               <num>          <num>
+              0.15801653                          0.13879709           2000
+              0.08577240                          0.16177135           2000
+              0.13712807                          0.18863049           2000
+              0.08285386                          0.13420245           1731
+              1.00000000                          1.00000000           2000
+              0.14285714                          0.33333333           2000
+              0.50000000                          1.00000000           2000
+              1.00000000                          1.00000000           2000
+              0.92105263                          0.90000000           2000
+              0.96363636                          0.92857143           2000
+              0.82812500                          1.00000000           2000
+              0.86635945                          0.83636364           2000
+              0.26765799                          0.32352941           2000
+              0.08668731                          0.19306931           1110
+              0.01435143                          0.04341428            581
+              0.02750000                          0.07000000           1298
+              0.06869125                          0.16763006           1281
+              0.78112450                          0.88353414           2000
+              0.23075361                          0.27944760           2000
+              0.04629457                          0.02238806           2000
+ fraction_cnv_proxy_high fraction_RAIR_top_quartile_cnv_high ref_cells_used
+                   <num>                               <num>          <num>

@@ -1,0 +1,145 @@
+HPA and ChEMBL translational annotation for candidate targets
+
+Sources:
+- Human Protein Atlas current proteinatlas.tsv.zip: https://www.proteinatlas.org/download/proteinatlas.tsv.zip
+- Human Protein Atlas v23 pathology.tsv.zip: https://v23.proteinatlas.org/download/pathology.tsv.zip
+- Human Protein Atlas v23 normal_tissue.tsv.zip: https://v23.proteinatlas.org/download/normal_tissue.tsv.zip
+- ChEMBL API: https://www.ebi.ac.uk/chembl/api/data
+
+HPA thyroid cancer pathology:
+   gene         cancer pathology_high pathology_medium pathology_low
+ <char>         <char>          <num>            <num>         <num>
+ MTHFD2 thyroid cancer              0                0             1
+ SLC7A5 thyroid cancer              2                1             0
+ SLC1A5 thyroid cancer              0                1             0
+    FN1 thyroid cancer              1                2             0
+  ITGB1 thyroid cancer              0                0             0
+    AXL thyroid cancer              0                0             0
+  FOSL1 thyroid cancer              1                0             0
+ pathology_not_detected favorable_p unfavorable_p pathology_total
+                  <num>       <num>         <num>           <num>
+                      1          NA            NA               2
+                      1          NA            NA               4
+                      3          NA            NA               4
+                      1          NA            NA               4
+                      3          NA            NA               3
+                      4          NA            NA               4
+                      3          NA            NA               4
+ pathology_detected_fraction pathology_high_medium_fraction
+                       <num>                          <num>
+                        0.50                           0.00
+                        0.75                           0.75
+                        0.25                           0.25
+                        0.75                           0.75
+                        0.00                           0.00
+                        0.00                           0.00
+                        0.25                           0.25
+
+HPA normal thyroid IHC:
+   gene        tissue       cell_type normal_thyroid_IHC_level
+ <char>        <char>          <char>                   <char>
+ MTHFD2 thyroid gland glandular cells                      Low
+ SLC7A5 thyroid gland glandular cells                   Medium
+ SLC1A5 thyroid gland glandular cells                      Low
+    FN1 thyroid gland glandular cells                      Low
+  ITGB1 thyroid gland glandular cells             Not detected
+    AXL thyroid gland glandular cells             Not detected
+  FOSL1 thyroid gland glandular cells             Not detected
+ normal_reliability
+             <char>
+           Approved
+           Approved
+           Enhanced
+           Enhanced
+           Enhanced
+          Uncertain
+           Enhanced
+
+ChEMBL target actionability:
+   gene target_chembl_id
+ <char>           <char>
+ MTHFD2    CHEMBL4105963
+ SLC1A5    CHEMBL3562162
+ SLC7A5       CHEMBL4459
+    AXL       CHEMBL4895
+                                                                     target_pref_name
+                                                                               <char>
+ Bifunctional methylenetetrahydrofolate dehydrogenase/cyclohydrolase 2, mitochondrial
+                                                  Neutral amino acid transporter B(0)
+                                Large neutral amino acids transporter small subunit 1
+                                                 Tyrosine-protein kinase receptor UFO
+    target_type activity_total_count mechanism_total_count max_mechanism_phase
+         <char>                <int>                 <int>               <num>
+ SINGLE PROTEIN                    1                     0                  NA
+ SINGLE PROTEIN                  143                     0                  NA
+ SINGLE PROTEIN                  473                     0                  NA
+ SINGLE PROTEIN                13019                     7                   4
+  mechanism_action_types
+                  <char>
+                        
+                        
+                        
+ INHIBITOR;BINDING AGENT
+                                                                            mechanism_molecule_ids
+                                                                                            <char>
+                                                                                                  
+                                                                                                  
+                                                                                                  
+ CHEMBL3545236;CHEMBL3301622;CHEMBL3809489;CHEMBL3301603;CHEMBL4297987;CHEMBL3984441;CHEMBL5095312
+                  actionability_bin
+                             <char>
+           Sparse chemical evidence
+  Preclinical chemical tractability
+  Preclinical chemical tractability
+ Clinical/approved mechanism record
+
+Integrated target annotation:
+Key: <gene>
+   gene                evidence_tier n_external_up_validations
+ <char>                       <char>                     <int>
+    AXL Tier 1A_core_actionable_axis                         2
+    FN1   Tier 1B_ecology_state_axis                         2
+  FOSL1   Tier 1B_ecology_state_axis                         2
+  ITGB1   Tier 1B_ecology_state_axis                         2
+ MTHFD2 Tier 1A_core_actionable_axis                         2
+ SLC1A5 Tier 1A_core_actionable_axis                         2
+ SLC7A5 Tier 1A_core_actionable_axis                         2
+ pathology_high_medium_fraction               normal_thyroid_IHC_summary
+                          <num>                                   <char>
+                           0.00 glandular cells Not detected (Uncertain)
+                           0.75           glandular cells Low (Enhanced)
+                           0.25  glandular cells Not detected (Enhanced)
+                           0.00  glandular cells Not detected (Enhanced)
+                           0.00           glandular cells Low (Approved)
+                           0.25           glandular cells Low (Enhanced)
+                           0.75        glandular cells Medium (Approved)
+ reliability_IH activity_total_count max_mechanism_phase
+         <char>                <int>               <num>
+      Uncertain                13019                   4
+       Enhanced                   NA                  NA
+       Enhanced                   NA                  NA
+       Enhanced                   NA                  NA
+       Approved                    1                  NA
+       Enhanced                  143                  NA
+       Approved                  473                  NA
+                  actionability_bin
+                             <char>
+ Clinical/approved mechanism record
+                               <NA>
+                               <NA>
+                               <NA>
+           Sparse chemical evidence
+  Preclinical chemical tractability
+  Preclinical chemical tractability
+                                                              actionability_note
+                                                                          <char>
+        clinically druggable kinase class; use as actionable ecology-linked node
+ robust ECM/state anchor; better as ecology marker than direct tumor-cell target
+         transcriptional MAPK/AP-1 readout; marker or upstream-pathway rationale
+           adhesion/ECM interface; ecology marker and combination-rationale node
+             enzyme vulnerability; strongest one-carbon gene across TCGA and GEO
+                           transporter vulnerability; robust across TCGA and GEO
+                           transporter vulnerability; robust across TCGA and GEO
+
+Interpretation:
+AXL has the strongest clinical actionability in ChEMBL. SLC1A5/SLC7A5 have substantial preclinical chemical activity records. MTHFD2 is biologically strong in omics validation but has sparse ChEMBL mechanism/activity evidence, so it should be framed as an experimental metabolic vulnerability rather than a near-clinic target.

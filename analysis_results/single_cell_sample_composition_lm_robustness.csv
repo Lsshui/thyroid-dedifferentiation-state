@@ -1,0 +1,3 @@
+model,term,estimate,ci_low,ci_high,p_value,n,r_squared
+GSE184362 epithelial RAIR ~ tumor/met + cell fractions + total cells,tumor_met_groupTumor_met,4.51180755622051,2.56720875089271,6.45640636154832,0.00041930615537207,17,0.84681948933062
+GSE232237 epithelial RAIR ~ PTC(vs ATC) + cell fractions + total cells,disease_groupPTC,2.16795409116132,0.522468867005471,3.81343931531716,0.021618140532855,11,0.900251525783748

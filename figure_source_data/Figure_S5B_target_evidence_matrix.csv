@@ -1,0 +1,29 @@
+gene,evidence,scaled_value
+AXL,TCGA RAIR rho,0.689952691463697
+FN1,TCGA RAIR rho,0.677224275222553
+FOSL1,TCGA RAIR rho,0.524765520030264
+ITGB1,TCGA RAIR rho,0.638960386721902
+MTHFD2,TCGA RAIR rho,0.595859534421889
+SLC1A5,TCGA RAIR rho,0.601626684407571
+SLC7A5,TCGA RAIR rho,0.475810278445786
+AXL,GEO validations,1
+FN1,GEO validations,1
+FOSL1,GEO validations,1
+ITGB1,GEO validations,1
+MTHFD2,GEO validations,1
+SLC1A5,GEO validations,1
+SLC7A5,GEO validations,1
+AXL,HPA high/medium,0
+FN1,HPA high/medium,0.75
+FOSL1,HPA high/medium,0.25
+ITGB1,HPA high/medium,0
+MTHFD2,HPA high/medium,0
+SLC1A5,HPA high/medium,0.25
+SLC7A5,HPA high/medium,0.75
+AXL,ChEMBL tractability,1
+FN1,ChEMBL tractability,0
+FOSL1,ChEMBL tractability,0
+ITGB1,ChEMBL tractability,0
+MTHFD2,ChEMBL tractability,0.25
+SLC1A5,ChEMBL tractability,0.65
+SLC7A5,ChEMBL tractability,0.65

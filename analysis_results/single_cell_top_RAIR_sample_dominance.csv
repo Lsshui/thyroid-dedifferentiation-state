@@ -1,0 +1,3 @@
+dataset,n_samples_with_top_cells,top1_sample,top1_fraction,top3_fraction,n_samples_over_1pct
+GSE184362,23,PTC10_T,0.227470195999192,0.497878359264498,14
+GSE232237,12,PT7,0.137837519160476,0.374012498526117,12

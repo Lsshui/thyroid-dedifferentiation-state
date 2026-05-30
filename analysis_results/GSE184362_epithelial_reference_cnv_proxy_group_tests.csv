@@ -1,0 +1,4 @@
+comparison,n_tumor_met,n_paratumor,median_tumor_met,median_paratumor,p_wilcox
+Tumor/met vs paratumor median CNV-z,13,4,-0.33379190811247,-0.103427585080723,0.865134745405447
+Tumor/met vs paratumor CNV-high fraction,13,4,0.0985123966942149,0.0769654630327724,0.691885968181172
+Tumor/met vs paratumor median RAIR-like,13,4,1.23355315468844,-3.42818240196002,0.00388555598618074

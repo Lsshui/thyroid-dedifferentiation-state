@@ -1,0 +1,104 @@
+TCGA-THCA RAIR-like high-vs-low pathway analysis
+
+Expression assay: tpm_unstrand 
+Genes retained after expression/variance filter: 26526 
+RAIR-like extreme comparison: Q4 high n = 127 ; Q1 low n = 127 
+Signature genes excluded from GSEA rank: 61 
+
+Top Hallmark pathways:
+                                    pathway      NES         padj size
+           HALLMARK_TNFA_SIGNALING_VIA_NFKB 1.960531 8.717133e-20  193
+                   HALLMARK_MITOTIC_SPINDLE 1.923237 1.794091e-18  195
+                    HALLMARK_G2M_CHECKPOINT 1.911156 4.366540e-18  193
+         HALLMARK_INTERFERON_GAMMA_RESPONSE 1.860519 5.934271e-16  195
+                       HALLMARK_E2F_TARGETS 1.839633 7.802214e-16  198
+                   HALLMARK_APICAL_JUNCTION 1.872435 1.196164e-15  181
+             HALLMARK_INFLAMMATORY_RESPONSE 1.832690 5.195974e-14  189
+                    HALLMARK_MYC_TARGETS_V1 1.763008 4.024378e-13  198
+ HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION 1.765321 2.543847e-12  188
+                       HALLMARK_P53_PATHWAY 1.714569 3.441864e-11  196
+                 HALLMARK_KRAS_SIGNALING_UP 1.712078 1.609675e-10  185
+           HALLMARK_ESTROGEN_RESPONSE_EARLY 1.690381 2.010286e-10  193
+                         HALLMARK_APOPTOSIS 1.744776 2.700772e-10  154
+               HALLMARK_ALLOGRAFT_REJECTION 1.631689 5.651420e-09  191
+         HALLMARK_INTERFERON_ALPHA_RESPONSE 1.812700 9.461014e-09   96
+
+Top Reactome pathways:
+                                                                                   pathway
+                                                                 REACTOME_RHO_GTPASE_CYCLE
+                                           REACTOME_SIGNALING_BY_RECEPTOR_TYROSINE_KINASES
+                                                         REACTOME_NEUTROPHIL_DEGRANULATION
+ REACTOME_DISEASES_OF_SIGNAL_TRANSDUCTION_BY_GROWTH_FACTOR_RECEPTORS_AND_SECOND_MESSENGERS
+                                                        REACTOME_SIGNALING_BY_INTERLEUKINS
+                                                                          REACTOME_M_PHASE
+                                                           REACTOME_CELL_CYCLE_CHECKPOINTS
+                                               REACTOME_TRANSCRIPTIONAL_REGULATION_BY_TP53
+                                                             REACTOME_INTERFERON_SIGNALING
+                                                              REACTOME_SARS_COV_INFECTIONS
+                                                             REACTOME_MITOTIC_PROMETAPHASE
+                                                   REACTOME_MITOTIC_METAPHASE_AND_ANAPHASE
+                                                             REACTOME_RHO_GTPASE_EFFECTORS
+                             REACTOME_CLASS_I_MHC_MEDIATED_ANTIGEN_PROCESSING_PRESENTATION
+                                                           REACTOME_DENGUE_VIRUS_INFECTION
+      NES         padj size
+ 1.824408 1.968375e-27  431
+ 1.756659 9.465178e-25  480
+ 1.776745 1.681607e-24  438
+ 1.720618 9.143086e-20  423
+ 1.727127 1.036318e-19  409
+ 1.702868 7.849527e-17  369
+ 1.765621 5.462666e-16  276
+ 1.693531 1.507121e-15  348
+ 1.775554 2.944489e-15  259
+ 1.616686 3.788208e-15  440
+ 1.848969 9.627834e-15  193
+ 1.802993 5.073991e-14  215
+ 1.697723 2.180875e-13  287
+ 1.641332 3.423289e-13  353
+ 1.634177 3.899481e-13  364
+
+Top RAIR-like correlated genes:
+       gene spearman_rho_RAIR_like       p_value         p_adj
+     IL1RAP              0.8669527 3.091862e-154 8.201473e-150
+      MEX3C              0.8340210 5.235377e-132 6.943680e-128
+   ARHGAP23              0.8202746 3.938126e-124 3.482091e-120
+       FLII              0.8134756 1.761497e-120 1.168137e-116
+       RCC2              0.8126562 4.739279e-120 2.514282e-116
+     PAPSS1              0.8089797 3.790061e-118 1.675586e-114
+       FLNA              0.8035689 2.019410e-115 7.652408e-112
+   SERPINB8              0.8032252 2.988970e-115 9.910677e-112
+     TMEM43              0.8005418 6.219024e-114 1.832954e-110
+       PON2              0.7998251 1.388033e-113 3.681897e-110
+      LASP1              0.7970334 3.069796e-112 7.402673e-109
+ AL031985.3              0.7949932 2.861499e-111 6.325345e-108
+      ACTN1              0.7941378 7.241147e-111 1.477528e-107
+  TNFRSF10A              0.7934318 1.552883e-110 2.942270e-107
+    DCUN1D3              0.7900649 5.670835e-109 1.002830e-105
+    DPY19L1              0.7879816 5.083513e-108 8.427829e-105
+   SEPTIN11              0.7869531 1.487483e-107 2.320998e-104
+     GPR161              0.7853318 7.984405e-107 1.176635e-103
+      ANXA1              0.7846546 1.604029e-106 2.239394e-103
+      CD276              0.7837514 4.050928e-106 5.372746e-103
+
+Top RAIR-like high-vs-low up genes:
+       gene    logFC      P.Value    adj.P.Val
+    DCSTAMP 5.309899 7.872358e-49 1.116696e-46
+        FN1 5.223759 1.897459e-61 1.398111e-58
+    SLC34A2 5.180175 2.294028e-42 1.658076e-40
+    TACSTD2 5.076941 8.756388e-52 1.828913e-49
+    SLC27A6 4.959362 8.354044e-63 8.523052e-60
+      SFTPB 4.885761 3.731640e-35 1.363436e-33
+     CXCL14 4.843638 5.658979e-31 1.392487e-29
+       KLK7 4.477763 3.773367e-45 3.720904e-43
+      LAMB3 4.376436 2.992603e-62 2.560703e-59
+    ZCCHC12 4.294272 5.860338e-26 9.203749e-25
+   SERPINA1 4.192059 2.190625e-46 2.411142e-44
+     B3GNT3 4.141852 9.805806e-45 9.191124e-43
+      SYT12 4.140014 3.992280e-61 2.786822e-58
+       CST6 4.069987 2.229557e-32 6.291620e-31
+     CLDN16 4.041550 5.097558e-46 5.474406e-44
+ AC254633.1 3.847950 5.398900e-54 1.507486e-51
+      KLK10 3.841246 5.421695e-45 5.229668e-43
+     CHI3L1 3.832669 3.263082e-31 8.212193e-30
+    TMPRSS6 3.790301 4.561987e-38 2.172554e-36
+      KCNN4 3.785770 7.105015e-51 1.327237e-48

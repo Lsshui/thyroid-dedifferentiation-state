@@ -1,0 +1,62 @@
+Confounder robustness analysis
+
+TCGA multivariable linear models:
+                                                  model               term
+                                                 <char>             <char>
+     IodineHandling ~ RAIR-like + CAF/immune + BRAF/RAS        RAIR_like_z
+ OneCarbon ~ MAPK + dediff + CAF/immune + drivers + TDS             MAPK_z
+ OneCarbon ~ MAPK + dediff + CAF/immune + drivers + TDS       Dediff_EMT_z
+                      RAIR-like ~ CAF/immune + BRAF/RAS              CAF_z
+                      RAIR-like ~ CAF/immune + BRAF/RAS ImmuneCheckpoint_z
+                      RAIR-like ~ CAF/immune + BRAF/RAS       BRAF_mutTRUE
+                      RAIR-like ~ CAF/immune + BRAF/RAS        RAS_mutTRUE
+    estimate       ci_low    ci_high      p_value     n r_squared
+       <num>        <num>      <num>        <num> <int>     <num>
+ -0.19206087 -0.281688459 -0.1024333 3.027308e-05   505 0.3025536
+  0.12422474 -0.008499264  0.2569487 6.652163e-02   505 0.4033229
+  0.48333175  0.335780785  0.6308827 2.893092e-10   505 0.4033229
+  0.33704407  0.254179802  0.4199083 9.290515e-15   505 0.3283666
+  0.06902496 -0.014007519  0.1520574 1.030411e-01   505 0.3283666
+  0.70217973  0.547067397  0.8572921 1.077303e-17   505 0.3283666
+  0.06478761 -0.192903610  0.3224788 6.215504e-01   505 0.3283666
+
+TCGA multivariable logistic models:
+                                                    model        term
+                                                   <char>      <char>
+             N1 vs N0 ~ RAIR-like + CAF/immune + BRAF/RAS RAIR_like_z
+       T3/T4 vs T1/T2 ~ RAIR-like + CAF/immune + BRAF/RAS RAIR_like_z
+ Stage III/IV vs I/II ~ RAIR-like + CAF/immune + BRAF/RAS RAIR_like_z
+      log_or        OR    ci_low  ci_high      p_value     n
+       <num>     <num>     <num>    <num>        <num> <int>
+  0.54998308 1.7332237 1.3357366 2.248995 3.503628e-05   455
+  0.05547397 1.0570415 0.8427738 1.325785 6.312516e-01   503
+ -0.03382764 0.9667381 0.7634113 1.224219 7.788786e-01   503
+
+Single-cell sample-level composition-adjusted models:
+                                                                  model
+                                                                 <char>
+   GSE184362 epithelial RAIR ~ tumor/met + cell fractions + total cells
+ GSE232237 epithelial RAIR ~ PTC(vs ATC) + cell fractions + total cells
+                     term estimate    ci_low  ci_high      p_value     n
+                   <char>    <num>     <num>    <num>        <num> <int>
+ tumor_met_groupTumor_met 4.511808 2.5672088 6.456406 0.0004193062    17
+         disease_groupPTC 2.167954 0.5224689 3.813439 0.0216181405    11
+ r_squared
+     <num>
+ 0.8468195
+ 0.9002515
+
+Single-cell top RAIR-like sample dominance:
+   dataset n_samples_with_top_cells top1_sample top1_fraction top3_fraction
+    <char>                    <int>      <char>         <num>         <num>
+ GSE184362                       23     PTC10_T     0.2274702     0.4978784
+ GSE232237                       12         PT7     0.1378375     0.3740125
+ n_samples_over_1pct
+               <int>
+                  14
+                  12
+
+Interpretation notes:
+- TCGA models test whether RAIR-like/state associations remain after CAF/immune checkpoint scores and BRAF/RAS mutation status.
+- Single-cell models are small-n and exploratory; they test whether epithelial RAIR-like signal is merely a sample-level microenvironment fraction artifact.
+- Candidate genes assessed in target tiering remain the primary target-level evidence.

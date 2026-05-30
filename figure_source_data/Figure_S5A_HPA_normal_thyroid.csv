@@ -1,0 +1,8 @@
+gene,tissue,cell_type,normal_thyroid_IHC_level,normal_reliability
+MTHFD2,thyroid gland,glandular cells,Low,Approved
+SLC7A5,thyroid gland,glandular cells,Medium,Approved
+SLC1A5,thyroid gland,glandular cells,Low,Enhanced
+FN1,thyroid gland,glandular cells,Low,Enhanced
+ITGB1,thyroid gland,glandular cells,Not detected,Enhanced
+AXL,thyroid gland,glandular cells,Not detected,Uncertain
+FOSL1,thyroid gland,glandular cells,Not detected,Enhanced

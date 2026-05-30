@@ -1,0 +1,29 @@
+Single-cell ecology localization summary
+
+Top 10% RAIR-like cells by broad marker-based cell class:
+   dataset top10_fraction_epithelial_thyroid top10_fraction_myeloid
+    <char>                             <num>                  <num>
+ GSE232237                         0.4861455             0.26506308
+ GSE184362                         0.6161851             0.08451202
+ top10_fraction_caf top10_fraction_t_nk top10_total_cells
+              <num>               <num>             <int>
+         0.11590614          0.03171796              8481
+         0.06859972          0.15477874             19796
+
+Sample-balanced epithelial/thyroid lineage tests, requiring >=50 cells per sample-celltype:
+                                                    comparison   dataset
+                                                        <char>    <char>
+ Epithelial/thyroid RAIR-like in tumor/metastasis vs paratumor GSE184362
+                    Epithelial/thyroid RAIR-like in ATC vs PTC GSE232237
+          cell_type n_group_a n_group_b   group_a   group_b median_group_a
+             <char>     <int>     <int>    <char>    <char>          <num>
+ Epithelial_Thyroid        13         4 Tumor_met Paratumor       1.233553
+ Epithelial_Thyroid         4         7       ATC       PTC       1.940608
+ median_group_b delta_a_minus_b    p_wilcox
+          <num>           <num>       <num>
+      -3.428182       4.6617356 0.003885556
+       2.688540      -0.7479312 0.395091585
+
+Interpretation guardrail:
+Cell-type labels are marker-based because raw GEO matrices lack author malignant labels/CNV calls in this local analysis.
+The current result supports epithelial/thyroid-lineage enrichment plus microenvironmental participation, not definitive malignant-cell exclusivity.

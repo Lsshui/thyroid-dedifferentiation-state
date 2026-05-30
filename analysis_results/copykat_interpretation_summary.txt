@@ -1,0 +1,86 @@
+copyKAT malignant-cell classification summary
+
+Important method note:
+copyKAT was run on subsampled epithelial/thyroid cells plus reference cells because full datasets are too large for per-sample Windows execution. Native copyKAT prediction files were parsed after classification; heatmap generation was terminated when necessary.
+
+Immune/stromal-reference copyKAT sample summary:
+   dataset        sample disease_group            tissue_group n_cells
+    <char>        <char>        <char>                  <char>   <int>
+ GSE184362 PTC10_RightLN   PTC_related   Lymph_node_metastasis     260
+ GSE184362       PTC10_T   PTC_related           Primary_tumor    1200
+ GSE184362      PTC11_SC   PTC_related Subcutaneous_metastasis     500
+ GSE184362        PTC8_P     Paratumor               Paratumor     260
+ GSE232237          AT13           ATC                     ATC     193
+ GSE232237          AT20           ATC                     ATC     260
+ GSE232237          PT10           PTC                     PTC     260
+ GSE232237           PT3           PTC                     PTC     260
+ n_epithelial epithelial_aneuploid_fraction epithelial_median_RAIR_aneuploid
+        <int>                         <num>                            <num>
+          160                     0.9312500                         3.448346
+          800                     0.3187500                         3.429762
+          300                     0.9900000                         4.017613
+          160                     0.9937500                        -2.806951
+           93                     0.4516129                        10.936278
+          160                     0.9375000                         1.817419
+          160                     0.9687500                         5.562362
+          160                     0.9625000                         2.794138
+ epithelial_median_RAIR_diploid n_aneuploid n_diploid
+                          <num>       <int>     <int>
+                      6.1524145         150        82
+                      3.0692517         271       444
+                             NA         304       150
+                     -4.6085616         171        76
+                     -0.4523778          42       129
+                      4.0702947         150       105
+                     -2.1732439         162        91
+                     -0.9347121         155        97
+                         analysis
+                           <char>
+ copyKAT immune/stromal reference
+ copyKAT immune/stromal reference
+ copyKAT immune/stromal reference
+ copyKAT immune/stromal reference
+ copyKAT immune/stromal reference
+ copyKAT immune/stromal reference
+ copyKAT immune/stromal reference
+ copyKAT immune/stromal reference
+
+Immune/stromal-reference epithelial RAIR-like by copyKAT class:
+   dataset n_aneuploid n_diploid median_RAIR_aneuploid median_RAIR_diploid
+    <char>       <int>     <int>                 <num>               <num>
+ GSE184362         860       277              3.264579            3.069252
+ GSE232237         501        52              2.827377           -0.251132
+ delta_RAIR_aneuploid_minus_diploid     p_wilcox
+                              <num>        <num>
+                          0.1953276 6.274845e-01
+                          3.0785086 4.179619e-11
+
+GSE184362 paratumor-epithelial-reference copyKAT sample summary:
+   dataset        sample n_target_epi aneuploid_fraction median_RAIR_aneuploid
+    <char>        <char>        <int>              <num>                 <num>
+ GSE184362 PTC10_RightLN          177          0.9943503              3.519378
+ GSE184362       PTC10_T          120          0.9750000              3.441940
+ GSE184362      PTC11_SC          178          1.0000000              4.142409
+ median_RAIR_diploid n_aneuploid n_diploid
+               <num>       <int>     <int>
+            5.687666         176         1
+            6.470638         117         3
+                  NA         178         0
+                               analysis
+                                 <char>
+ copyKAT paratumor epithelial reference
+ copyKAT paratumor epithelial reference
+ copyKAT paratumor epithelial reference
+
+GSE184362 paratumor-epithelial-reference RAIR-like by copyKAT class:
+ n_aneuploid n_diploid median_RAIR_aneuploid median_RAIR_diploid delta_RAIR
+       <int>     <int>                 <num>               <num>      <num>
+         471         4              3.697519            6.079152  -2.381633
+   p_wilcox
+      <num>
+ 0.09639805
+
+Interpretation:
+- GSE232237 supports higher RAIR-like score in copyKAT-aneuploid epithelial/thyroid cells than diploid epithelial/thyroid cells.
+- GSE184362 immune/stromal-reference runs overcall some paratumor epithelial cells as aneuploid, so that reference design is not sufficient for malignant specificity claims.
+- GSE184362 paratumor-epithelial-reference runs classify nearly all sampled tumor/metastatic epithelial cells as aneuploid, supporting malignant-like compartment localization, but diploid target epithelial cells are too few for a strong within-target RAIR comparison.

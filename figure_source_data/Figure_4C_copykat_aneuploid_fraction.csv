@@ -1,0 +1,12 @@
+analysis,dataset,sample,tissue_group,n_epithelial,aneuploid_fraction
+Immune/stromal ref.,GSE184362,PTC10_RightLN,Lymph_node_metastasis,160,0.93125
+Immune/stromal ref.,GSE184362,PTC10_T,Primary_tumor,800,0.31875
+Immune/stromal ref.,GSE184362,PTC11_SC,Subcutaneous_metastasis,300,0.99
+Immune/stromal ref.,GSE184362,PTC8_P,Paratumor,160,0.99375
+Immune/stromal ref.,GSE232237,AT13,ATC,93,0.451612903225806
+Immune/stromal ref.,GSE232237,AT20,ATC,160,0.9375
+Immune/stromal ref.,GSE232237,PT10,PTC,160,0.96875
+Immune/stromal ref.,GSE232237,PT3,PTC,160,0.9625
+Paratumor epithelial ref.,GSE184362,PTC10_RightLN,Tumor/met target,177,0.994350282485876
+Paratumor epithelial ref.,GSE184362,PTC10_T,Tumor/met target,120,0.975
+Paratumor epithelial ref.,GSE184362,PTC11_SC,Tumor/met target,178,1

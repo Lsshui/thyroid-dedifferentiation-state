@@ -1,0 +1,118 @@
+TCGA-THCA discovery analysis
+
+Expression assay: tpm_unstrand 
+Samples: 505 primary tumors
+
+Gene-set coverage:
+            module n_available
+1              TDS          16
+2        OneCarbon          11
+3             MAPK          10
+4       Dediff_EMT          10
+5   IodineHandling           9
+6 ImmuneCheckpoint           7
+7              CAF           7
+                                                                            available_genes
+1 DIO1;DIO2;DUOX1;DUOX2;FOXE1;GLIS3;NKX2-1;PAX8;SLC26A4;SLC5A5;SLC5A8;TG;THRA;THRB;TPO;TSHR
+2                        SHMT2;MTHFD2;MTHFD1L;PHGDH;PSAT1;PSPH;SLC1A5;SLC7A5;TYMS;DHFR;GART
+3                                 DUSP4;DUSP5;DUSP6;ETV4;ETV5;SPRY1;SPRY2;SPRY4;CCND1;FOSL1
+4                                      HMGA2;AXL;VIM;FN1;CD44;ITGA6;KRT19;EPCAM;LAMC2;ITGB1
+5                                          SLC5A5;TPO;TG;TSHR;SLC26A4;DUOX1;DUOX2;DIO1;DIO2
+6                                              CD274;PDCD1LG2;PDCD1;CTLA4;LAG3;TIGIT;HAVCR2
+7                                                  COL1A1;COL1A2;DCN;LUM;ACTA2;PDGFRA;TAGLN
+
+Score correlations with RAIR-like:
+             score spearman_rho_vs_RAIR_like      p_value
+1              TDS                -0.2382385 6.593324e-08
+2        OneCarbon                 0.6849460 0.000000e+00
+3             MAPK                 0.8117098 0.000000e+00
+4       Dediff_EMT                 0.8526978 0.000000e+00
+5   IodineHandling                -0.3407774 4.438369e-15
+6 ImmuneCheckpoint                 0.3121030 9.423201e-13
+7              CAF                 0.4134490 0.000000e+00
+8        RAIR_like                 1.0000000 0.000000e+00
+
+Clinical/mutation group tests, selected RAIR-like rows:
+                              comparison     score     positive   negative
+43                   N_positive_N1_vs_N0 RAIR_like           N1         N0
+44                 T_high_T3_T4_vs_T1_T2 RAIR_like        T3_T4      T1_T2
+45 stage_high_Stage_III_IV_vs_Stage_I_II RAIR_like Stage_III_IV Stage_I_II
+46                BRAF_mut_TRUE_vs_FALSE RAIR_like         TRUE      FALSE
+47                 RAS_mut_TRUE_vs_FALSE RAIR_like         TRUE      FALSE
+48                TERT_mut_TRUE_vs_FALSE RAIR_like         TRUE      FALSE
+   n_positive n_negative median_positive median_negative delta_median
+43        225        230       0.9113350      0.03188818    0.8794468
+44        194        309       0.7277590      0.34112534    0.3866337
+45        167        336       0.6030401      0.46825226    0.1347878
+46        241        264       1.2578473     -0.79548622    2.0533336
+47         52        453      -1.6446079      0.69952683   -2.3441348
+48          2        503       1.2113858      0.56499538    0.6463905
+       p_wilcox expected
+43 1.011442e-06   higher
+44 4.220141e-02   higher
+45 3.520997e-01   higher
+46 1.272634e-23   higher
+47 2.514558e-08    lower
+48 4.859680e-01   higher
+
+Logistic clinical associations, selected RAIR-like/TDS/OneCarbon rows:
+       outcome predictor   n events OR_per_SD    CI_low   CI_high      p_value
+x   N_positive       TDS 455    225 0.5711835 0.4652611 0.7012204 8.719972e-08
+x1  N_positive OneCarbon 455    225 0.9990005 0.8311188 1.2007934 9.915000e-01
+x7  N_positive RAIR_like 455    225 1.8828253 1.5091537 2.3490192 2.068987e-08
+x8      T_high       TDS 503    194 0.6148125 0.5066652 0.7460438 8.308505e-07
+x11     T_high OneCarbon 503    194 0.8466722 0.7049709 1.0168560 7.489747e-02
+x71     T_high RAIR_like 503    194 1.2369009 1.0251348 1.4924124 2.648259e-02
+x9  stage_high       TDS 503    167 0.6739872 0.5552699 0.8180863 6.578223e-05
+x12 stage_high OneCarbon 503    167 0.8069144 0.6665390 0.9768534 2.779782e-02
+x72 stage_high RAIR_like 503    167 1.1701610 0.9652179 1.4186194 1.096874e-01
+
+Exploratory survival:
+  endpoint     score   n events HR_per_SD    CI_low  CI_high   p_value
+1       OS       TDS 504     16 1.2056938 0.7304408 1.990165 0.4644480
+2       OS RAIR_like 504     16 0.9130665 0.5571548 1.496335 0.7182046
+3       OS OneCarbon 504     16 1.2103707 0.7620192 1.922520 0.4186682
+
+Top target priority table:
+      gene median_high median_low delta_high_low     p_wilcox rho_RAIR_like
+13   DUSP5    8.149994  6.2835168      1.8664777 3.500418e-39     0.7178325
+25     FN1   11.786013  8.1442582      3.6417546 1.981777e-36     0.6772243
+37     MET    8.349170  6.7423410      1.6068288 1.957305e-49     0.7540787
+28   KRT19    9.120317  7.5443103      1.5760066 3.164047e-30     0.6173214
+14   DUSP6    8.921837  7.7288261      1.1930107 5.608625e-47     0.7643305
+7   SLC1A5    5.358576  4.1183698      1.2402058 6.046625e-29     0.6016267
+23     AXL    5.328402  4.4771035      0.8512986 5.301418e-41     0.6899527
+22   HMGA2    3.956289  2.5750444      1.3812446 3.392882e-29     0.5872234
+12   DUSP4    4.865963  3.9636822      0.9022812 2.288279e-38     0.6770403
+30   LAMC2    7.026606  6.2272563      0.7993501 6.016453e-31     0.6212231
+20   CCND1    8.467598  7.6356165      0.8319814 1.284315e-36     0.6605600
+21   FOSL1    3.472137  2.6071538      0.8649830 2.388015e-19     0.5247655
+2   MTHFD2    2.399691  1.7150738      0.6846169 5.692978e-26     0.5958595
+3  MTHFD1L    4.790725  4.1660282      0.6246970 3.553742e-37     0.6892934
+8   SLC7A5    3.388534  2.7021477      0.6863862 9.536001e-17     0.4758103
+15    ETV4    5.850077  5.0240182      0.8260586 2.153870e-31     0.5841606
+31   ITGB1    6.007749  5.2567691      0.7509803 4.449588e-34     0.6389604
+42  PIK3CA    2.915827  2.2722173      0.6436095 1.207027e-36     0.6537268
+36     ALK    1.384271  0.7737008      0.6105701 5.413133e-24     0.5250415
+16    ETV5    6.022734  5.3730826      0.6496514 2.457606e-25     0.5397817
+   p_rho_RAIR_like      rho_TDS    p_rho_TDS priority_score
+13    0.000000e+00 -0.406837237 0.000000e+00              8
+25    0.000000e+00 -0.571083444 0.000000e+00              8
+37    0.000000e+00 -0.330213580 3.512334e-14             10
+28    0.000000e+00 -0.567283405 0.000000e+00             18
+14    0.000000e+00 -0.144501810 1.140412e-03             21
+7     0.000000e+00 -0.391580990 0.000000e+00             23
+23    1.305453e-72 -0.117970356 7.960115e-03             29
+22    3.920318e-48 -0.205030120 3.392488e-06             30
+12    0.000000e+00 -0.109429887 1.391201e-02             31
+30    0.000000e+00 -0.220717444 5.835551e-07             32
+20    0.000000e+00  0.113497437 1.072932e-02             41
+21    0.000000e+00 -0.199940553 6.231044e-06             42
+2     7.418027e-50 -0.182508776 3.692640e-05             43
+3     0.000000e+00 -0.009747528 8.269719e-01             43
+8     6.810079e-30 -0.258250225 3.879239e-09             47
+15    0.000000e+00  0.007674991 8.633518e-01             47
+31    0.000000e+00  0.221985584 5.012019e-07             49
+42    6.948326e-63  0.191652415 1.448079e-05             51
+36    4.006453e-37 -0.034017584 4.455967e-01             60
+16    0.000000e+00  0.320895133 1.974611e-13             65

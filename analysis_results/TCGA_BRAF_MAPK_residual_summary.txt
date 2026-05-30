@@ -1,0 +1,115 @@
+TCGA BRAF/MAPK residual and BRAF-mutant internal analysis
+
+All-cohort MAPK-adjusted residual models:
+   cohort                                                         model
+   <char>                                                        <char>
+ All TCGA      IodineHandling ~ RAIR residual + MAPK/CAF/immune/drivers
+ All TCGA IodineHandling ~ OneCarbon residual + MAPK/CAF/immune/drivers
+ All TCGA            N1 vs N0 ~ RAIR residual + MAPK/CAF/immune/drivers
+ All TCGA       N1 vs N0 ~ OneCarbon residual + MAPK/CAF/immune/drivers
+                 term   estimate     ci_low    ci_high      p_value     n
+               <char>      <num>      <num>      <num>        <num> <int>
+      RAIR_resid_MAPK -1.0158925 -1.1601390 -0.8716459 4.459886e-37   505
+ OneCarbon_resid_MAPK  0.2272231  0.1419056  0.3125406 2.467074e-07   505
+      RAIR_resid_MAPK         NA  1.3452158  3.4614523 1.423127e-03   455
+ OneCarbon_resid_MAPK         NA  0.5753200  0.9335943 1.185800e-02   455
+ r_squared     log_or        OR
+     <num>      <num>     <num>
+ 0.4848908         NA        NA
+ 0.3240119         NA        NA
+        NA  0.7691213 2.1578694
+        NA -0.3107711 0.7328816
+
+BRAF-mutant internal models:
+      cohort                                               model        term
+      <char>                                              <char>      <char>
+ BRAF-mutant        IodineHandling ~ RAIR-like + MAPK/CAF/immune RAIR_like_z
+ BRAF-mutant IodineHandling ~ OneCarbon + MAPK/dediff/CAF/immune OneCarbon_z
+ BRAF-mutant              N1 vs N0 ~ RAIR-like + MAPK/CAF/immune RAIR_like_z
+ BRAF-mutant       N1 vs N0 ~ OneCarbon + MAPK/dediff/CAF/immune OneCarbon_z
+   estimate      ci_low    ci_high      p_value     n r_squared     log_or
+      <num>       <num>      <num>        <num> <int>     <num>      <num>
+ -0.8316519 -1.02701480 -0.6362889 4.584861e-15   241 0.3509784         NA
+  0.1357001  0.02181167  0.2495885 1.973459e-02   241 0.1769617         NA
+         NA  1.45090911  6.6096179 3.476517e-03   220        NA  1.1303581
+         NA  0.58587083  1.2394984 4.026884e-01   220        NA -0.1599746
+        OR
+     <num>
+        NA
+        NA
+ 3.0967652
+ 0.8521655
+
+BRAF-mutant target gene correlations:
+   gene      cohort rho_RAIR_like  p_RAIR_like rho_IodineHandling
+ <char>      <char>         <num>        <num>              <num>
+ MTHFD2 BRAF-mutant     0.5793913 5.233558e-23         0.07382679
+ SLC1A5 BRAF-mutant     0.3225395 3.588743e-07         0.01142708
+ SLC7A5 BRAF-mutant     0.4406991 7.146729e-13        -0.15784784
+    AXL BRAF-mutant     0.5812679 3.523551e-23         0.20624940
+    FN1 BRAF-mutant     0.3923202 3.807338e-10        -0.45963702
+  FOSL1 BRAF-mutant     0.3559034 1.665851e-08        -0.12295017
+ p_IodineHandling     n p_adj_RAIR_like p_adj_IodineHandling
+            <num> <int>           <num>                <num>
+      0.253578778   241    7.850337e-23          0.304294534
+      0.859818966   241    3.588743e-07          0.859818966
+      0.014162483   241    9.528972e-13          0.024278543
+      0.001282378   241    6.040373e-23          0.003077708
+      0.000000000   241    4.568806e-10          0.000000000
+      0.056690619   241    1.817292e-08          0.075587492
+
+Median/OR split tests:
+      cohort          split_score       endpoint n_high n_low median_high
+      <char>               <char>         <char>  <int> <int>       <num>
+ BRAF-mutant            RAIR_like IodineHandling    121   120 -0.29877073
+ BRAF-mutant            RAIR_like            TDS    121   120 -0.11921687
+ BRAF-mutant            RAIR_like N_positive_bin    112   108  0.57142857
+ BRAF-mutant            RAIR_like     T_high_bin    121   119  0.47107438
+ BRAF-mutant            RAIR_like Stage_high_bin    120   120  0.38333333
+ BRAF-mutant            OneCarbon IodineHandling    121   120 -0.15447509
+ BRAF-mutant            OneCarbon            TDS    121   120 -0.07867053
+ BRAF-mutant            OneCarbon N_positive_bin    112   108  0.52678571
+ BRAF-mutant            OneCarbon     T_high_bin    121   119  0.40495868
+ BRAF-mutant            OneCarbon Stage_high_bin    120   120  0.33333333
+ BRAF-mutant OneCarbon_resid_MAPK IodineHandling    121   120 -0.16322821
+ BRAF-mutant OneCarbon_resid_MAPK            TDS    121   120 -0.09498639
+ BRAF-mutant OneCarbon_resid_MAPK N_positive_bin    112   108  0.54464286
+ BRAF-mutant OneCarbon_resid_MAPK     T_high_bin    120   120  0.40833333
+ BRAF-mutant OneCarbon_resid_MAPK Stage_high_bin    121   119  0.34710744
+ median_low effect_high_vs_low      p_value                 effect_type
+      <num>              <num>        <num>                      <char>
+ -0.3959926          0.0972219 3.143047e-01 median_delta_high_minus_low
+ -0.3464265          0.2272096 1.062347e-02 median_delta_high_minus_low
+  0.5185185          1.2380952 4.309656e-01              OR_high_vs_low
+  0.4033613          1.3173828 2.907924e-01              OR_high_vs_low
+  0.3666667          1.0737101 7.897387e-01              OR_high_vs_low
+ -0.5338323          0.3793572 2.438554e-07 median_delta_high_minus_low
+ -0.4598694          0.3811988 8.748938e-10 median_delta_high_minus_low
+  0.5648148          0.8577173 5.712741e-01              OR_high_vs_low
+  0.4705882          0.7656250 3.058664e-01              OR_high_vs_low
+  0.4166667          0.7000000 1.831128e-01              OR_high_vs_low
+ -0.5159465          0.3527183 3.854988e-06 median_delta_high_minus_low
+ -0.4089625          0.3139761 3.753569e-07 median_delta_high_minus_low
+  0.5462963          0.9933533 9.803561e-01              OR_high_vs_low
+  0.4666667          0.7887324 3.626745e-01              OR_high_vs_low
+  0.4033613          0.7863924 3.684457e-01              OR_high_vs_low
+        p_adj
+        <num>
+ 5.238411e-01
+ 5.311735e-02
+ 5.387070e-01
+ 5.238411e-01
+ 7.897387e-01
+ 6.096386e-07
+ 4.374469e-09
+ 5.712741e-01
+ 3.823330e-01
+ 3.051880e-01
+ 9.637470e-06
+ 1.876785e-06
+ 9.803561e-01
+ 4.605571e-01
+ 4.605571e-01
+
+Interpretation:
+These models test whether one-carbon/RAIR-like signals carry information beyond BRAF mutation and MAPK score. The strongest robust finding is the link to iodine-handling loss; N-stage signal is stronger for composite RAIR-like than for one-carbon alone.

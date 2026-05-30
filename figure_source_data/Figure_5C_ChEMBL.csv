@@ -1,0 +1,5 @@
+gene,target_chembl_id,target_pref_name,target_type,activity_total_count,mechanism_total_count,max_mechanism_phase,mechanism_action_types,mechanism_molecule_ids,actionability_bin
+MTHFD2,CHEMBL4105963,"Bifunctional methylenetetrahydrofolate dehydrogenase/cyclohydrolase 2, mitochondrial",SINGLE PROTEIN,1,0,,"","",Sparse chemical evidence
+SLC1A5,CHEMBL3562162,Neutral amino acid transporter B(0),SINGLE PROTEIN,143,0,,"","",Preclinical chemical tractability
+SLC7A5,CHEMBL4459,Large neutral amino acids transporter small subunit 1,SINGLE PROTEIN,473,0,,"","",Preclinical chemical tractability
+AXL,CHEMBL4895,Tyrosine-protein kinase receptor UFO,SINGLE PROTEIN,13019,7,4,INHIBITOR;BINDING AGENT,CHEMBL3545236;CHEMBL3301622;CHEMBL3809489;CHEMBL3301603;CHEMBL4297987;CHEMBL3984441;CHEMBL5095312,Clinical/approved mechanism record
